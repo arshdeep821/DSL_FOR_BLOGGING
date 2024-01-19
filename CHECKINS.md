@@ -17,6 +17,14 @@ A user can have if conditions in this DSL and render certain blogs based on thes
 
 Another main feature that will enhance user's experience with our blog-service is allowing the users to loop through blog posts, whether it be all posts or posts from a certain category, and customize a certain feature regarding that post, such as the text size, light/dark mode. 
 
+**Functions:** User can define functions in our DSL that allow you to quickly create new blogs with less duplicate code. 
+
+**Array:** Users can add, remove (possibly sort) blog posts from an array. This array could represent the blog posts currently being shown on the screen.
+
+**Variables:** Users can store blog posts in variables so they can be stored and referenced in later code (perhaps inside a future conditional statment).
+
+**Conditionals:** Users can perform actions conditionally (e.g. reassign blog post variable, add and remove from displayed blog post array).
+
 ###### Example Snippets
 
 
