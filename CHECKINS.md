@@ -12,12 +12,6 @@ The high-level purpose of our DSL is to provide non-programmers with the ability
 
 ###### Rich Features
 
-One main feature of this DSL would be to add and edit blog posts, allowing users to edit in any text as well as which category that post would belong to.
-
-A user can have if conditions in this DSL and render certain blogs based on these conditions. Render certain blogs based on the time of day, or even use it to convert the blog to dark mode.
-
-Another main feature that will enhance user's experience with our blog-service is allowing the users to loop through blog posts, whether it be all posts or posts from a certain category, and customize a certain feature regarding that post, such as the text size, light/dark mode. 
-
 **Functions:** User can define functions in our DSL that allow you to quickly create new blogs with less duplicate code. 
 
 **Array:** Users can add, remove (possibly sort) blog posts from an array. This array could represent the blog posts currently being shown on the screen.
