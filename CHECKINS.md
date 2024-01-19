@@ -8,23 +8,22 @@ Use this file to commit information clearly documenting your check-ins' content.
 ###### High Level Purpose
 Utilizing the concept of literate programming, the DSL provides a low-code solution to generate CSS, HTML files with minimum effort.
 
-The high-level purpose of our DSL is to provide non-programmers with the ability to make and maintain their own blog website. Aiming for users that are not accustomed to programming or prefer a simplistic mode of blogging on the internet. It will allow users to start, edit and update different posts on the blog page.
+The high-level purpose of our DSL is to provide non-programmers with the ability to make and maintain their own blog website. Aiming for users that are not accustomed to programming or prefer a simplistic mode of blogging on the internet. It will allow users to create and update different posts on the blog page.
 
 ###### Rich Features
 
-**Functions:** User can define functions in our DSL that allow you to quickly create new blogs with less duplicate code. 
+**Functions:** User can define functions in our DSL that quickly create new blogs with less duplicate code. 
 
 **Array:** Users can add, remove (possibly sort) blog posts from an array. This array could represent the blog posts currently being shown on the screen.
 
-**Variables:** Users can store blog posts in variables so they can be stored and referenced in later code (perhaps inside a future conditional statment).
+**Variables:** Users can store blog posts in variables so they can be referenced or updated in later code (perhaps inside a future conditional statement).
 
 **Conditionals:** Users can perform actions conditionally (e.g. reassign blog post variable, add and remove from displayed blog post array).
 
 ###### Example Snippets
-
+The example snippet below should show how the above features can work together.
 
 <img width="625" alt="Screenshot 2024-01-19 at 3 03 21 PM" src="https://media.github.students.cs.ubc.ca/user/16895/files/accbdaf9-cdb5-493f-a2b0-368be7a43f51">
-Features: functions, array (with adding and removing), variables to store blogs, conditionals
 
 #### TA Changes/Feedback
 
