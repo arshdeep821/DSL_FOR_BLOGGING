@@ -6,6 +6,7 @@ Use this file to commit information clearly documenting your check-ins' content.
 #### Brief Description
 
 ###### High Level Purpose
+Utilizing the concept of literate programming, the DSL provides a low-code solution to generate CSS, HTML files with minimum effort.
 
 The high-level purpose of our DSL is to provide non-programmers with the ability to make and maintain their own blog website. Aiming for users that are not accustomed to programming or prefer a simplistic mode of blogging on the internet. It will allow users to start, edit and update different posts on the blog page.
 
