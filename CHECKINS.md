@@ -21,7 +21,7 @@ The high-level purpose of our DSL is to provide non-programmers with the ability
 **Conditionals:** Users can perform actions conditionally (e.g. reassign blog post variable, add and remove from displayed blog post array).
 
 ###### Example Snippets
-The example snippet below should show how the above features can work together.
+The example snippet below shows how the above features can work together.
 
 <img width="625" alt="Screenshot 2024-01-19 at 3 03 21 PM" src="https://media.github.students.cs.ubc.ca/user/16895/files/accbdaf9-cdb5-493f-a2b0-368be7a43f51">
 
