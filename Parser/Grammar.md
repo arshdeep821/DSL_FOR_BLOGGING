@@ -25,3 +25,22 @@ create : CREATE_POST TEXT; <br>
 edit : EDIT_POST TEXT; <br>
 loop : LOOP_POST TEXT; <br>
 conditional : IF_POST TEXT; <br>
+
+
+# Examples 
+Blog Name: The Stories of Morpheus <br>
+Create Post: First Job <br>
+Edit: First Job - Text: Finding my first job was ............ bla bla <br>
+Edit: First Job - Color: Blue <br>
+Edit: First Job - Category: Work <br>
+Loop Category: Work -> Edit: Work - Color: Red \\ changing all work posts to red
+
+
+
+
+# To Do
+### Major 
+
+
+### Minor
+- May want both blog name and BLOG NAME to be accepted<br>
