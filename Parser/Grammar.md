@@ -18,7 +18,7 @@ TEXT: ~[[|\]\r\n]+ -> mode(DEFAULT_MODE);<br>
 
 
 # Parser Grammar
-program : start create commands* EOF; <br>
+program : start commands* EOF; <br>
 start : BLOG_START TEXT;<br>
 command : create | edit | loop | conditional<br>
 create : CREATE_POST TEXT; <br>
@@ -28,8 +28,8 @@ conditional : IF_POST TEXT; <br>
 
 
 # Examples 
-Blog Name: The Stories of Morpheus <br>
-Create Post: First Job <br>
+Blog Name = The Stories of Morpheus <br>
+Create Post = My First Job  <br>
 Edit: First Job - Text: Finding my first job was ............ bla bla <br>
 Edit: First Job - Color: Blue <br>
 Edit: First Job - Category: Work <br>
