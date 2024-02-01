@@ -1,13 +1,13 @@
 # Define Functions
 
-function create_day_blog = create blog with (category=day, color=blue)
+function create_day_blog = create blog with (category=day, color=blue) <br>
 function create_night_blog = create blog with (category=night, color=black)
 
 - function <FUNCTION_NAME> = create blog with (category=<NAME>, color =<COLOR>)
 
 # Define mutable variables
 
-var blog_day = create_day_blog with text "How I stay awake during the day"
+var blog_day = create_day_blog with text "How I stay awake during the day" <br>
 var blog_night = create_health_blog with text "How I fall asleep at night"
 
 - var <BLOG_NAME> = <FUNCTION_NAME> with text "<BLOG_TEXT>"
