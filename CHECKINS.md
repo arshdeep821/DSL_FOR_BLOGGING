@@ -117,8 +117,24 @@ One user thought that the syntax was relatively easy to understand, and was glad
   
 ###### Going forward with User study
 
-Using the feedback form the user, we will use their valuable information to further develop our syntax for the DSL, working on the whitespace as well as using brackets and quotations in a way that feels reasonable to the user. 
+Using the feedback from the user, we will use their valuable information to further develop our syntax for the DSL, working on the whitespace as well as using brackets and quotations in a way that feels reasonable to the user. 
   
+###### Code Written by User 2
+  
+  <img width="553" alt="Screenshot 2024-02-02 at 2 35 43 PM" src="https://media.github.students.cs.ubc.ca/user/16810/files/565991f2-faf6-400a-bf06-b9cbb1a6c8c6">
+  
+###### User's thoughts
+  
+- Add brackets to increase readability, for the conditional to make it easier to read
+- Was confused about what to declare the category as, felt it was pretty open ended
+- Syntax is easy to understand
+- Very intuitive for someone from a non coding background
+- A little wordy, maybe somethings can be shortened
+  
+###### Going forward with User study
+  
+Using this feedback from the user, we can work on improving some ambiguous functionality, and maybe shortening the wording.
+
 #### Changes 
 
 We are definitely considering expanding the customisation, allowing for different lists to be made, as well as further developing the conditional variables.  
