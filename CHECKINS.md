@@ -65,7 +65,7 @@ The plan is to frontload the schedule due to other midterms appearing closer to 
 None as of yet, will update with time. 
 
 
-## Check-in 2
+## Check-in 3
 
 #### Explain a mockup of your concrete language design
 
@@ -104,3 +104,27 @@ if is_2025 then var blog_day = create_day_blog with text "How I stay awake durin
 
 - if <PREDEFINED_CONDITION> then <COMMAND_LINE> <br>
   e.g. night-time
+  
+#### Notes about your first user study
+  
+###### Code Written by User
+
+<img width="654" alt="Screenshot 2024-02-02 at 10 08 27 AM" src="https://media.github.students.cs.ubc.ca/user/16895/files/f563376b-1808-4735-8840-2b00df253c82">
+  
+###### User's thoughts
+
+One user thought that the syntax was relatively easy to understand, and was glad with the amount of customisation. However, user did find that the switching between brackets and quotation marks was not the most intuitive, as well as had few questions on the amount of whitespace.
+  
+###### Going forward with User study
+
+Using the feedback form the user, we will use their valuable information to further develop our syntax for the DSL, working on the whitespace as well as using brackets and quotations in a way that feels reasonable to the user. 
+  
+#### Changes 
+
+We are definitely considering expanding the customisation, allowing for different lists to be made, as well as further developing the conditional variables.  
+  
+#### Timeline
+No big changes to be made. 
+  
+#### Tests
+There definitely can be unit tests made for the parser, as we decided against using ANTLR for our project. Each statement will have its own set of tests as well as the specific eror codes that get sent. 
