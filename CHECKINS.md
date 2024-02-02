@@ -107,7 +107,7 @@ if is_2025 then var blog_day = create_day_blog with text "How I stay awake durin
   
 #### Notes about your first user study
   
-###### Code Written by User
+###### Code Written by User 1
 
 <img width="654" alt="Screenshot 2024-02-02 at 10 08 27 AM" src="https://media.github.students.cs.ubc.ca/user/16895/files/f563376b-1808-4735-8840-2b00df253c82">
   
