@@ -137,7 +137,7 @@ Using this feedback from the user, we can work on improving some ambiguous funct
 
 #### Changes 
 
-We are definitely considering expanding the customisation, allowing for different lists to be made, as well as further developing the conditional variables.  We also discussed the AST's data structure implementation and use of ANTLR
+We are definitely considering expanding the customisation, allowing for different lists to be made, as well as further developing the conditional variables.  We also brainstormed the AST's data structure implementation, constructed mock ASTs and discussed use of ANTLR. 
   
 #### Timeline
 No big changes to be made. 
