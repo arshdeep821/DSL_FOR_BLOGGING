@@ -20,6 +20,7 @@ inputArray = [
 
 
 const eval = (inputArray) => {
+    const valid = true;
     for (const tokens of inputArray) {
         switch (tokens[0]) {
             case "list":
@@ -41,8 +42,17 @@ const eval = (inputArray) => {
                 break;
             default:
                 do_error();
+                valid = false;
+                break;
         }
     }
+
+    if (valid) {
+        do_render();
+    } else {
+        console.log('Something Error occured in the backend');
+    }
+    
 }
 
 // Dictionary from user-defined blog list name to list of blogs
@@ -68,16 +78,18 @@ const do_function = (tokens) => {
 
 // ["add", "yeet", "displayed_blog_posts"]
 const do_add = (tokens) => {
-    const blogTitle = tokens[1];
-    // move to do_var?
-    // ---
-    const newBlogHTMLElement = document.createElement("div");
-    newBlogHTMLElement.id = `blogID-${blogTitle}`;
-    const blogContent = variables[blogTitle];
+    const title = tokens[1];
+    const blogContent = tokens[2];
+    const newBlogDiv = createBlogDiv(title, blogContent);
+    blog_arrays[title].push([title, newBlogDiv]);
+}
+
+const createBlogDiv = (title, blogContent) => {
+    const newBlogDiv = document.createElement("div");
+    newBlogDiv.id = `blogID-${title}`;
     const newBlogContent = document.createTextNode(blogContent);
-    // ---
-    newBlogHTMLElement.appendChild(newBlogContent);
-    blog_arrays[tokens[2]].push([blogTitle, newBlogHTMLElement]);
+    newBlogDiv.appendChild(blogContent);
+    return newBlogDiv;
 }
 
 // ["remove", "yeet", "displayed_blog_posts"]
@@ -101,7 +113,12 @@ const do_remove = (tokens) => {
 
 // ["var", "var_name", "create_day_blog", "Here is some valid text for a blog"],
 const do_var = (tokens) => {
-    variables[tokens[1]] = 0; // TODO: call create_day_blog("Here is some valid text for a blog")
+    // TODO: call create_day_blog("Here is some valid text for a blog")
+    var_name = tokens[1];
+    function_name = tokens[2];
+    blog_text = tokens[3];
+    const blog = user_functions[function_name](var_name, blog_text);
+    return blog;
 }
 
 // ["if", "night", "then", "if", "midnight", "then", "var", "var_name", "create_day_blog", "Here is some valid text for a blog"]
@@ -130,3 +147,9 @@ const do_if = (tokens) => {
 const do_error = () => {
     
 }
+
+const do_render = () => {
+    const rootElement = document.getElementById("root");
+}
+
+module.exports = eval;

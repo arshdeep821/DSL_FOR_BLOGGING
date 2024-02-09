@@ -1,3 +1,5 @@
+const eval = require('./index')
+
 require('dotenv').config();
 
 const { StatusCodes } = require('http-status-codes');
