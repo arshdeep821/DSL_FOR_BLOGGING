@@ -45,7 +45,7 @@ const eval = (inputArray) => {
     }
 }
 
-// Dictionary from list name to list of posts
+// Dictionary from user-defined blog list name to list of blogs
 let blog_arrays = {};
 
 // Dictionary from user-defined variable names to values
@@ -112,17 +112,19 @@ const do_if = (tokens) => {
     const isDay = hours < 18 || hours > 5;
     switch (condition) {
         case "night":
-            if(isDay) break;
-            // eval
+            if(isNight) {
+                eval([tokens.slice(3)]);
+            }
             break;
         case "day":
-            if(!isDay) break;
-            // eval
+            if(isDay) {
+                eval([tokens.slice(3)]);
+            }
             break;
         default:
+            console.log("State error!")
             break;
     }
-    eval([tokens.slice(3)]);
 }
 
 const do_error = () => {
