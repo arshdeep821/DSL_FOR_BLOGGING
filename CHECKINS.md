@@ -158,5 +158,5 @@ Difference is that users should be able to see the output of their written code 
 
 #### Timeline
 - Monday, February 12th: Minimum Viable Product (MVP) ready for manual end-to-end testing.
-- Friday, February 16th: Project completion with automated testing implemented wherever feasible and practical.
+- Friday, February 16th: Project completion with automated testing implemented wherever feasible and practical. Also have completed final user studies.
 - Later: If time allows, incorporate additional features identified through user studies.
