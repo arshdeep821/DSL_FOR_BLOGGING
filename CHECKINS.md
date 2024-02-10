@@ -150,7 +150,8 @@ There definitely can be unit tests made for the parser, as we decided against us
 #### Status of Implementation
 Parser is working and is implemented aside from some comments made from the first user study. There are also unit tests for static parsing. The two group members working on the parser (Sahib and Ilya) will now implement the dynamic checks to alleviate some work of backend. All tests are passing for the parser and there will be no new parser tests.
   
-<insert backend progress here>
+The evaluator for the backend is comlpete, meaning all the tokens are analyzed correctly and HTML components are made from them. We are now working on the functionality related to rendering the actual HTML components (which are already created) onto index.html so the user can view them as the site is deployed. Tests still need to be written for the backend.
+ 
   
 #### Plans for final user study
 Difference is that users should be able to see the output of their written code lines, compared to the first user study having only trying out the syntax and grammar of our DSL. 
