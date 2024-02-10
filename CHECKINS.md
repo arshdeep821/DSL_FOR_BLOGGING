@@ -148,7 +148,9 @@ There definitely can be unit tests made for the parser, as we decided against us
 ## Check-in 4
   
 #### Status of Implementation
-Parser is working and is implemented aside from some comments made from the first user study. Moreover, we will implement some static checking for declarations to alleviate some work of backend. The corresponding tests are not written. 
+Parser is working and is implemented aside from some comments made from the first user study. There are also unit tests for static parsing. The two group members working on the parser (Sahib and Ilya) will now implement the dynamic checks to alleviate some work of backend. 
+  
+<insert backend progress here>
   
 #### Plans for final user study
 Difference is that users should be able to see the output of their written code lines, compared to the first user study having only trying out the syntax and grammar of our DSL. 
