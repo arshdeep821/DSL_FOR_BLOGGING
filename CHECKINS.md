@@ -144,3 +144,14 @@ No big changes to be made.
   
 #### Tests
 There definitely can be unit tests made for the parser, as we decided against using ANTLR for our project. Each statement will have its own set of tests as well as the specific eror codes that get sent. 
+  
+## Check-in 4
+  
+#### Status of Implementation
+Parser is working and is implemented aside from some comments made from the first user study. Moreover, we will implement some static checking for declarations to alleviate some work of backend. The corresponding tests are not written. 
+  
+#### Plans for final user study
+Difference is that users should be able to see the output of their written code lines, compared to the first user study having only trying out the syntax and grammar of our DSL. 
+
+#### Timeline
+
