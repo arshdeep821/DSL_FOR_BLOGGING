@@ -157,4 +157,6 @@ The evaluator for the backend is comlpete, meaning all the tokens are analyzed c
 Difference is that users should be able to see the output of their written code lines, compared to the first user study having only trying out the syntax and grammar of our DSL. 
 
 #### Timeline
-
+- Monday, February 12th: Minimum Viable Product (MVP) ready for manual end-to-end testing.
+- Friday, February 16th: Project completion with automated testing implemented wherever feasible and practical.
+- Later: If time allows, incorporate additional features identified through user studies.
