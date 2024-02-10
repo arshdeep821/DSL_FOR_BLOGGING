@@ -148,7 +148,7 @@ There definitely can be unit tests made for the parser, as we decided against us
 ## Check-in 4
   
 #### Status of Implementation
-Parser is working and is implemented aside from some comments made from the first user study. There are also unit tests for static parsing. The two group members working on the parser (Sahib and Ilya) will now implement the dynamic checks to alleviate some work of backend. 
+Parser is working and is implemented aside from some comments made from the first user study. There are also unit tests for static parsing. The two group members working on the parser (Sahib and Ilya) will now implement the dynamic checks to alleviate some work of backend. All tests are passing for the parser and there will be no new parser tests.
   
 <insert backend progress here>
   
