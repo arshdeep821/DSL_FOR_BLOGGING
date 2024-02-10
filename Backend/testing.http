@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/v1/data
+Content-Type: application/json
+
+{
+  "tokens": [
+    ["list", "displayed_blog_posts"]
+  ]
+}

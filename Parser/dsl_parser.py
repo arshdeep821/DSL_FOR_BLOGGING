@@ -6,6 +6,15 @@ def parse_file(file_name):
 
     with open(file_name, 'r') as f:
         for loc in f:
+
+            parse_result = parse(loc)
+
+            if type(parse_result) == str:
+                return parse_result
+            
+            if len(parse_result) == 0:
+                continue
+            
             result.append(parse(loc))
     
     return result
@@ -33,6 +42,9 @@ def parse(loc):
     if keyword == "if":
         return parse_conditional(loc)
     
+    if keyword == "\n":
+        return []
+    
     return "SYNTAX ERROR: invalid keyword"
     
 
@@ -46,12 +58,12 @@ def parse_function(loc):
     
 
 def parse_variable(loc):
-    regex_pattern = r'var [a-zA-Z_]\w* = [a-zA-Z_]\w* with text "([^"]*)"'
+    regex_pattern = r'var [a-zA-Z_]\w* = [a-zA-Z_]\w* with text \(([^"]*)\)'
     if not re.match(regex_pattern, loc):
         return "SYNTAX ERROR: invalid variable declaration"
     
     parts = loc.split(" ")
-    return ["var", parts[1], parts[3], loc[loc.index('"')+1:-2]]
+    return ["var", parts[1], parts[3], loc[loc.index('(')+1:-2]]
     
 
 def parse_array(loc):
@@ -62,14 +74,14 @@ def parse_array(loc):
 
 def parse_conditional(loc):
     # TODO: we should check the conditional is one of the predefined ones (for now only is_night)
-    regex_pattern = r'if [a-zA-Z_]\w* then .*'
+    regex_pattern = r'if \([a-zA-Z_]\w*\) then .*'
     if not re.match(regex_pattern, loc):
         return "SYNTAX ERROR: invalid conditional declaration"
     parts = loc.split()
     second_part = loc[loc.index("then ") + len("then "):]
     if isinstance(parse(second_part), str):
         return "SYNTAX ERROR: statement has syntax error"
-    return ["if", parts[1], "then"] + parse(second_part)
+    return ["if", parts[1][1:-1], "then"] + parse(second_part)
 
 
 def parse_add(loc):

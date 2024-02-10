@@ -13,10 +13,10 @@ function create_day_blog = create blog with (category=day, color=blue)
 ## Variables
 
 ```
-var var_name = function_name with text "text"
+var var_name = function_name with text (text)
 -> ["var", "var_name", "function_name", "text"]
 
-var blog_day = create_day_blog with text "How I stay awake during the day"
+var blog_day = create_day_blog with text (How I stay awake during the day)
 -> ["var", "blog_day", "create_day_blog", "How I stay awake during the day"]
 ```
 
@@ -37,6 +37,6 @@ remove var_name from displayed_blog_posts
 
 ```
 NOTE: after "then" must be identical to previous operation (above)
-if predefined_conditional_variable then ...
+if (predefined_conditional_variable) then ...
 -> ["if", "predefined_conditional_variable", "then", ...]
 ```

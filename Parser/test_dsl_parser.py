@@ -1,5 +1,5 @@
 import unittest 
-import dsl_parser
+import dsl_parser as dsl_parser
 
 # TO RUN: python -m unittest test_dsl_parser.py
 
@@ -60,9 +60,9 @@ class TestParse(unittest.TestCase):
 
     def test_parse_variable(self):
         parser_inputs = [
-            'var var_name = create_day_blog with text "Here is some valid text for a blog"\n',
-            'varvar_name = no_space with test "this should not work"\n',
-            'var var_name= forgot_a_space with test "this should not work"\n',
+            'var var_name = create_day_blog with text (Here is some valid text for a blog)\n',
+            'varvar_name = no_space with test (this should not work)\n',
+            'var var_name= forgot_a_space with test (this should not work)\n',
         ]
         
         expected_outputs = [
@@ -98,7 +98,7 @@ class TestParse(unittest.TestCase):
 
     def test_parse_conditional(self):
         # Correct
-        parser_input = "if night then add yeet to displayed_blog_posts\n"
+        parser_input = "if (night) then add yeet to displayed_blog_posts\n"
         expected_output = ["if", "night", "then", "add", "yeet", "displayed_blog_posts"]
         self.assertEqual(dsl_parser.parse(parser_input), expected_output)
 
@@ -108,17 +108,22 @@ class TestParse(unittest.TestCase):
         self.assertEqual(dsl_parser.parse(parser_input), expected_output)
 
         # Wrong Syntax
-        parser_input = "if night thens add yeet to displayed_blog_posts"
+        parser_input = "if (night) thens add yeet to displayed_blog_posts"
         expected_output = "SYNTAX ERROR: invalid conditional declaration"
         self.assertEqual(dsl_parser.parse(parser_input), expected_output)
 
         # Statement has wrong syntax
-        parser_input = "if night then add yeet todo displayed_blog_posts"
+        parser_input = "if (night) then add yeet todo displayed_blog_posts"
         expected_output = "SYNTAX ERROR: statement has syntax error"
         self.assertEqual(dsl_parser.parse(parser_input), expected_output)
 
+        # Statement has wrong syntax
+        parser_input = "if night then add yeet to displayed_blog_posts\n"
+        expected_output = "SYNTAX ERROR: invalid conditional declaration"
+        self.assertEqual(dsl_parser.parse(parser_input), expected_output)
+
         # Double Correct
-        parser_input = 'if night then if midnight then var var_name = create_day_blog with text "Here is some valid text for a blog"\n'
+        parser_input = 'if (night) then if (midnight) then var var_name = create_day_blog with text (Here is some valid text for a blog)\n'
         expected_output = ["if", "night", "then", "if", "midnight", "then", "var", "var_name", "create_day_blog", "Here is some valid text for a blog"]
         self.assertEqual(dsl_parser.parse(parser_input), expected_output)
 
