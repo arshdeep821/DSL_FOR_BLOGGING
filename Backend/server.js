@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/api/v1/data', (req, res) => {
-    tokens = req.body;
+    const { tokens } = req.body;
     console.log(tokens);
     eval(tokens);
     res.status(StatusCodes.CREATED).send('Web Site Created');
