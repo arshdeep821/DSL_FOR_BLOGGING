@@ -55,6 +55,20 @@ const eval = (inputArray) => {
     
 }
 
+// Dictionary that maps a color text to it's hex value
+const colors = {
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "red": "#FF0000",
+    "green": "#00FF00",
+    "blue": "#0000FF",
+    "yellow": "#FFFF00",
+    "purple": "#800080",
+    "cyan": "#00FFFF",
+    "magenta": "#FF00FF",
+    "orange": "#FFA500"
+};
+
 // Dictionary from user-defined blog list name to list of blogs
 let blog_arrays; // might need to instantiate here instead of in do_list
 
@@ -96,8 +110,8 @@ const createBlogDiv = (title, blogContent, params) => {
     // 3. Switch based on key type (e.g color or category, then make changes to div based on value) 
     for (let param of params) {
         let values = param.split("=");
-        let key = value[0];
-        let value = value[1];
+        let key = values[0];
+        let value = values[1];
 
         switch (key) {
             case "category":
