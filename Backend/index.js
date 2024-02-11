@@ -104,7 +104,7 @@ const createBlogDiv = (title, blogContent, params) => {
                 // TODO: modify category of div
                 break;
             case "color":
-                // TODO: C
+                // TODO: Create a dictionary with color hexvalues (used to define CSS file)
                 // https://www.color-hex.com/
                 // TODO: modify color of div
                 break;
