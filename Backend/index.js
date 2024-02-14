@@ -104,9 +104,10 @@ const do_function = (tokens) => {
 const do_add = (tokens) => {
     const title = tokens[1];
     const blogContent = tokens[2];
-    const newBlogDiv = createBlogDiv(title, blogContent);
+    // const newBlogDiv = createBlogDiv(title, blogContent);
     // blog_arrays[title].push([title, newBlogDiv]);
-    blog_arrays.push([title, newBlogDiv]);
+    // blog_arrays.push([title, newBlogDiv]);
+    blog_arrays.push([title, variables[title]]);
 }
 
 // function create_day_blog = create blog with (category=day, color=blue)
@@ -177,7 +178,8 @@ const do_var = (tokens) => {
     blog_text = tokens[3];
     const params = user_functions[function_name];
     const blog = createBlogDiv(var_name, blog_text, params);
-    return blog;
+    variables[var_name] = blog;
+    // return blog;
 }
 
 // ["if", "night", "then", "if", "midnight", "then", "var", "var_name", "create_day_blog", "Here is some valid text for a blog"]
