@@ -28,16 +28,29 @@ def run_program():
     #     ]
     # }
 
+    # data = {
+    #     "tokens": [
+    #         ["list", "displayed_blog_posts"],
+    #         ["function", "create_day_blog", "category=day", "color=blue"],
+    #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
+    #         ["add", "blog_day", "displayed_blog_posts"]
+
+    #     ]
+    # }
+
     data = {
         "tokens": [
             ["list", "displayed_blog_posts"],
             ["function", "create_day_blog", "category=day", "color=blue"],
+            ["function", "create_night_blog", "category=night", "color=purple"],
             ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
-            ["add", "blog_day", "displayed_blog_posts"]
+            ["var", "blog_night", "create_night_blog", "How I stay awake during the day"],
+            ["add", "blog_day", "displayed_blog_posts"],
+            ["add", "blog_night", "displayed_blog_posts"]
 
         ]
     }
-
+    
     response = requests.post(url, headers=headers, json=data)
     print(response.text)
 
