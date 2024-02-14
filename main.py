@@ -22,9 +22,19 @@ def run_program():
         "Content-Type": "application/json"
     }
 
+    # data = {
+    #     "tokens": [
+    #         ["list", "displayed_blog_posts"]
+    #     ]
+    # }
+
     data = {
         "tokens": [
-            ["list", "displayed_blog_posts"]
+            ["list", "displayed_blog_posts"],
+            ["function", "create_day_blog", "category=day", "color=blue"],
+            ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
+            ["add", "blog_day", "displayed_blog_posts"]
+
         ]
     }
 

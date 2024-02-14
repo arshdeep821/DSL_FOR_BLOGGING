@@ -17,7 +17,13 @@ inputArray = [
 ]
  */
 
+const jsdom = require("jsdom");
+const JSDOM = jsdom.JSDOM;
+const dom = new JSDOM('<!DOCTYPE html><html><body><div id="root"></div></body></html>');
+const window = dom.window;
+const document = window.document;
 
+const fs = require('fs');
 
 const eval = (inputArray) => {
     const valid = true;
@@ -103,11 +109,18 @@ const do_add = (tokens) => {
     blog_arrays.push([title, newBlogDiv]);
 }
 
+// function create_day_blog = create blog with (category=day, color=blue)
 const createBlogDiv = (title, blogContent, params) => {
     // TODO: parse params array, and modify div based on that
     // 1. Parse params array (it's of form ["key1=value1", "key2=value2"]), separate by '=' char
     // 2. Iterate over parsed params
     // 3. Switch based on key type (e.g color or category, then make changes to div based on value) 
+    const newBlogDiv = document.createElement("div");
+    newBlogDiv.id = `blogID-${title}`;
+    const newBlogContent = document.createTextNode(blogContent);
+    newBlogDiv.appendChild(newBlogContent);
+    return newBlogDiv;
+
     for (let param of params) {
         let values = param.split("=");
         let key = values[0];
@@ -116,23 +129,24 @@ const createBlogDiv = (title, blogContent, params) => {
         switch (key) {
             case "category":
                 // TODO: modify category of div
+                if (value === "day") {
+                    // add styling for day
+                } else if (value === "night") {
+                    // add styling for night
+                } else {
+                    // error
+                }
+                
                 break;
             case "color":
-                // TODO: Create a dictionary with color hexvalues (used to define CSS file)
-                // https://www.color-hex.com/
-                // TODO: modify color of div
+                document.getElementById(`${myBlogDiv.id}`).style.color = colors[value];
+                
                 break;
             default:
                 break;
         }
     }
     
-
-    const newBlogDiv = document.createElement("div");
-    newBlogDiv.id = `blogID-${title}`;
-    const newBlogContent = document.createTextNode(blogContent);
-    newBlogDiv.appendChild(blogContent);
-    return newBlogDiv;
 }
 
 // ["remove", "yeet", "displayed_blog_posts"]
@@ -193,8 +207,23 @@ const do_error = () => {
     
 }
 
+// blog_arrays = [[name1, blog1], [name2, blog2]]
 const do_render = () => {
+    // const rootElement = document.getElementById("root");
+
+    // taken from external source
+    
     const rootElement = document.getElementById("root");
+    
+    // taken from external source
+
+
+    for (let blog of blog_arrays) {
+        rootElement.appendChild(blog[1]);
+    }
+    const htmlContent = dom.serialize();
+    fs.writeFileSync('output.html', htmlContent);
+
 }
 
 module.exports = eval;
