@@ -169,3 +169,13 @@ Overall feedback from the user study was pretty good, the code is less ambiguous
   
 #### Status of Implementation
 The backend server is implemented and tested to be functional. The evaluator is able to generate HTML file with basic styling based on test inputs. However, there will be a delay on the delivery of the production ready backend evaluator service, as that extensive testing, refactoring and bug fixing are still required
+  
+#### Final Video
+- This week, we will mostly work on planning and creating our project video.
+- We will all try to plan it together then we will choose someone to present it.
+- Our TA suggested using a MacBook to create the video since you can screen and voice record at the same time.
+
+#### Additional Tasks
+- Debugging: We will continue to test our program and make sure everything works end-to-end, catching errors as we go.
+- Improvements: There will always be improvements to add, so this depends on how much time we have. We will prioritize making the blog posts look nicer (improving styling) and making new features/changes collected from the user studies.
+
