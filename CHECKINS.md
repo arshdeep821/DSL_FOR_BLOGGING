@@ -163,5 +163,9 @@ Difference is that users should be able to see the output of their written code 
 
 ## Check-in 5
   
+#### Status of user study
+  
+Overall feedback from the user study was pretty good, the code is less ambiguous than before, a little bit more intuitive and fairly easy for a person with limited programming experience to grasp onto. Key elements of feedback we gained was mainly parts of code that are slightly ambiguous, having elements such as brackets around the text of the blog helped users understand directly which text the blog will display. If conditions were a little ambiguous was as well so it was simplified down to a single line if statement, which is more readable according to the users. Overall the final user studies went smoother than the first due to our improvements on the DSL and we basically asked a user to work with each one of the DSL's main features.
+  
 #### Status of Implementation
 The backend server is implemented and tested to be functional. The evaluator is able to generate HTML file with basic styling based on test inputs. However, there will be a delay on the delivery of the production ready backend evaluator service, as that extensive testing, refactoring and bug fixing are still required
