@@ -160,3 +160,8 @@ Difference is that users should be able to see the output of their written code 
 - Monday, February 12th: Minimum Viable Product (MVP) ready for manual end-to-end testing.
 - Friday, February 16th: Project completion with automated testing implemented wherever feasible and practical. Also have completed final user studies.
 - Later: If time allows, incorporate additional features identified through user studies.
+
+## Check-in 5
+  
+#### Status of Implementation
+The backend server is implemented and tested to be functional. The evaluator is able to generate HTML file with basic styling based on test inputs. However, there will be a delay on the delivery of the production ready backend evaluator service, as that extensive testing, refactoring and bug fixing are still required
