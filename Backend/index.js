@@ -140,13 +140,13 @@ const createBlogDiv = (title, blogContent, params) => {
         
         switch (key) {
             case "color":
-                document.getElementById(`${myBlogDiv.id}`).style.color = colors[value];
+                document.getElementById(`${newBlogDiv.id}`).style.color = colors[value];
                 break;
             case "font":
-                document.getElementById(`${myBlogDiv.id}`).style.font = fonts[value];
+                document.getElementById(`${newBlogDiv.id}`).style.font = fonts[value];
                 break;
             case "size":
-                document.getElementById(`${myBlogDiv.id}`).style.fontSize = sizes[value];
+                document.getElementById(`${newBlogDiv.id}`).style.fontSize = sizes[value];
                 break;
             case "image":
                 const newImage = createImageElement(value);
