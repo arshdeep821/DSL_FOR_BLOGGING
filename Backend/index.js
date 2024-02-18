@@ -81,7 +81,7 @@ const fonts = {
     "courier": "Courier New",
 }
 
-const fontSize = {
+const sizes = {
     "small": "6px",
     "medium": "12px",
     "large": "18px"
@@ -146,7 +146,7 @@ const createBlogDiv = (title, blogContent, params) => {
                 document.getElementById(`${myBlogDiv.id}`).style.font = fonts[value];
                 break;
             case "size":
-                document.getElementById(`${myBlogDiv.id}`).style.fontSize = fontSize[value];
+                document.getElementById(`${myBlogDiv.id}`).style.fontSize = sizes[value];
                 break;
             case "image":
                 const newImage = createImageElement(value);

@@ -1,9 +1,11 @@
-function create_night_blog = create blog with (category=night, color=purple)
+function create_night_blog = create blog with (color=purple)
 
-function create_school_blog = create blog with (category=day, color=yellow)
+function create_school_blog = create blog with (font=verdana, size=large, color=yellow)
+
+function create_day_blog = create blog with (font=courier, size=small, img=https://en.wikipedia.org/wiki/File:Retriever_in_water.jpg)
 
 var blog_day = create_day_blog with text (How I stay awake during the day)
-
+ 
 var blog_night = create_night_blog with text (How I stay awake during the night)
 
 var blog_school = create_school_blog with text (How I pass all my classes)
