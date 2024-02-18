@@ -43,6 +43,7 @@ const eval = (inputArray) => {
                 break;
             case "function":
                 do_function(tokens);
+                break;
             case "if":
                 do_if(tokens);
                 break;
@@ -74,6 +75,17 @@ const colors = {
     "magenta": "#FF00FF",
     "orange": "#FFA500"
 };
+
+const fonts = {
+    "verdana": "verdana",
+    "courier": "Courier New",
+}
+
+const fontSize = {
+    "small": "6px",
+    "medium": "12px",
+    "large": "18px"
+}
 
 // Dictionary from user-defined blog list name to list of blogs
 let blog_arrays; // might need to instantiate here instead of in do_list
@@ -120,55 +132,50 @@ const createBlogDiv = (title, blogContent, params) => {
     newBlogDiv.id = `blogID-${title}`;
     const newBlogContent = document.createTextNode(blogContent);
     newBlogDiv.appendChild(newBlogContent);
-    return newBlogDiv;
 
     for (let param of params) {
         let values = param.split("=");
         let key = values[0];
         let value = values[1];
-
+        
         switch (key) {
-            case "category":
-                // TODO: modify category of div
-                if (value === "day") {
-                    // add styling for day
-                } else if (value === "night") {
-                    // add styling for night
-                } else {
-                    // error
-                }
-                
-                break;
             case "color":
                 document.getElementById(`${myBlogDiv.id}`).style.color = colors[value];
-                
+                break;
+            case "font":
+                document.getElementById(`${myBlogDiv.id}`).style.font = fonts[value];
+                break;
+            case "size":
+                document.getElementById(`${myBlogDiv.id}`).style.fontSize = fontSize[value];
+                break;
+            case "image":
+                const newImage = createImageElement(value);
+                newBlogDiv.appendChild(newImage);
                 break;
             default:
+                // Error: invalid key
+                console.log("Error: key " + key + " is undefined");
                 break;
         }
     }
-    
+
+    return newBlogDiv;
+}
+
+const createImageElement = (url) => {
+    const newImage = new Image(100, 100);
+    newImage.src = url;
+    return newImage;
 }
 
 // ["remove", "yeet", "displayed_blog_posts"]
 const do_remove = (tokens) => {
-    // const curr_array = blog_arrays[tokens[2]];
-
-    // for (let item of curr_array) {
-    //     if (item[0] === tokens[1]) {
-    //         const index = curr_array.indexOf(item);
-    //         curr_array.splice(index, 1);
-    //         break;
-    //     }
-    // }
-
     for (let i = 0; i < blog_arrays.length; i++) {
         if (blog_arrays[i][0] === tokens[1]) {
             blog_arrays.splice(i, 1);
             break;
         }
     }
-    // { "displayed_blog_posts: [["yeet1", blog], ["yeet2", blog]]}
 }
 
 // ["var", "var_name", "create_day_blog", "Here is some valid text for a blog"],

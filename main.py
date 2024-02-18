@@ -28,6 +28,7 @@ def run_program():
     #     ]
     # }
 
+    # input.txt
     # data = {
     #     "tokens": [
     #         ["list", "displayed_blog_posts"],
@@ -38,15 +39,33 @@ def run_program():
     #     ]
     # }
 
+    # input2.txt
+    # data = {
+    #     "tokens": [
+    #         ["list", "displayed_blog_posts"],
+    #         ["function", "create_day_blog", "category=day", "color=blue"],
+    #         ["function", "create_night_blog", "category=night", "color=purple"],
+    #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
+    #         ["var", "blog_night", "create_night_blog", "How I stay awake during the night"],
+    #         ["add", "blog_day", "displayed_blog_posts"],
+    #         ["add", "blog_night", "displayed_blog_posts"]
+    #     ]
+    # }
+
+    # input3.txt
     data = {
         "tokens": [
             ["list", "displayed_blog_posts"],
             ["function", "create_day_blog", "category=day", "color=blue"],
             ["function", "create_night_blog", "category=night", "color=purple"],
+            ["function", "create_school_blog", "category=day", "color=yellow"],
             ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
-            ["var", "blog_night", "create_night_blog", "How I stay awake during the day"],
+            ["var", "blog_night", "create_night_blog", "How I stay awake during the night"],
+            ["var", "blog_school", "create_school_blog", "How I pass all my classes"],
+            ["add", "blog_school", "displayed_blog_posts"],
             ["add", "blog_day", "displayed_blog_posts"],
-            ["add", "blog_night", "displayed_blog_posts"]
+            ["add", "blog_night", "displayed_blog_posts"],
+            ["remove", "blog_school", "displayed_blog_posts"],
 
         ]
     }

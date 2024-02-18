@@ -1,0 +1,17 @@
+function create_night_blog = create blog with (category=night, color=purple)
+
+function create_school_blog = create blog with (category=day, color=yellow)
+
+var blog_day = create_day_blog with text (How I stay awake during the day)
+
+var blog_night = create_night_blog with text (How I stay awake during the night)
+
+var blog_school = create_school_blog with text (How I pass all my classes)
+
+add blog_school to displayed_blog_posts
+
+add blog_night to displayed_blog_posts
+
+add blog_day to displayed_blog_posts
+
+remove blog_school from displayed_blog_posts
