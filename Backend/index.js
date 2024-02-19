@@ -82,9 +82,9 @@ const fonts = {
 }
 
 const sizes = {
-    "small": "6px",
-    "medium": "12px",
-    "large": "18px"
+    "small": "16px",
+    "medium": "32px",
+    "large": "42px"
 }
 
 // Dictionary from user-defined blog list name to list of blogs
@@ -130,6 +130,11 @@ const createBlogDiv = (title, blogContent, params) => {
     // 3. Switch based on key type (e.g color or category, then make changes to div based on value) 
     const newBlogDiv = document.createElement("div");
     newBlogDiv.id = `blogID-${title}`;
+
+    const newBlogHeader = document.createElement("h3");
+    newBlogHeader.append(title.replaceAll("_", " "));
+    newBlogDiv.appendChild(newBlogHeader)
+
     const newBlogContent = document.createTextNode(blogContent);
     newBlogDiv.appendChild(newBlogContent);
 
@@ -140,19 +145,17 @@ const createBlogDiv = (title, blogContent, params) => {
         
         switch (key) {
             case "color":
-                // document.getElementById(`${newBlogDiv.id}`).style.color = colors[value];
                 newBlogDiv.style.color = colors[value];
                 break;
             case "font":
-                // document.getElementById(`${newBlogDiv.id}`).style.font = fonts[value];
                 newBlogDiv.style.font = fonts[value];
                 break;
             case "size":
-                // document.getElementById(`${newBlogDiv.id}`).style.fontSize = sizes[value];
                 newBlogDiv.style.fontSize = sizes[value];
                 break;
             case "image":
                 const newImage = createImageElement(value);
+                newImage.style.display = 'block';
                 newBlogDiv.appendChild(newImage);
                 break;
             default:
@@ -167,7 +170,6 @@ const createBlogDiv = (title, blogContent, params) => {
 
 const createImageElement = (url) => {
     const newImage = document.createElement('img');
-    // const newImage = new Image(100, 100);
     newImage.width = 100;
     newImage.height = 100;
     newImage.src = url;
@@ -200,10 +202,10 @@ const do_if = (tokens) => {
     // TODO
     const condition = tokens[1];
     const hours = new Date().getHours();
-    const isDay = hours < 18 || hours > 5;
+    const isDay = hours < 18 && hours > 5;
     switch (condition) {
         case "night":
-            if(isNight) {
+            if(!isDay) {
                 eval([tokens.slice(3)]);
             }
             break;

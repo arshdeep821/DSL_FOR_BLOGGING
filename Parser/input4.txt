@@ -1,0 +1,17 @@
+function create_night_blog = create blog with (color=purple)
+
+function create_school_blog = create blog with (font=verdana, size=large, color=yellow)
+
+function create_day_blog = create blog with (font=courier, size=small, image=https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg)
+
+var blog_day = create_day_blog with text (How I stay awake during the day)
+ 
+var blog_night = create_night_blog with text (How I stay awake during the night)
+
+var blog_school = create_school_blog with text (How I pass all my classes)
+
+add blog_school to displayed_blog_posts
+
+add blog_night to displayed_blog_posts
+
+if (night) then add blog_night to displayed_blog_posts
