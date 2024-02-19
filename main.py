@@ -58,7 +58,7 @@ def run_program():
             ["list", "displayed_blog_posts"],
             ["function", "create_night_blog", "color=purple"],
             ["function", "create_school_blog", "font=verdana", "size=large", "color=yellow"],
-            ["function", "create_day_blog", "font=courier", "size=small", "img=https://en.wikipedia.org/wiki/File:Retriever_in_water.jpg)"],
+            ["function", "create_day_blog", "font=courier", "size=small", "image=https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg"],
             ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
             ["var", "blog_night", "create_night_blog", "How I stay awake during the night"],
             ["var", "blog_school", "create_school_blog", "How I pass all my classes"],

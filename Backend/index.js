@@ -140,13 +140,16 @@ const createBlogDiv = (title, blogContent, params) => {
         
         switch (key) {
             case "color":
-                document.getElementById(`${newBlogDiv.id}`).style.color = colors[value];
+                // document.getElementById(`${newBlogDiv.id}`).style.color = colors[value];
+                newBlogDiv.style.color = colors[value];
                 break;
             case "font":
-                document.getElementById(`${newBlogDiv.id}`).style.font = fonts[value];
+                // document.getElementById(`${newBlogDiv.id}`).style.font = fonts[value];
+                newBlogDiv.style.font = fonts[value];
                 break;
             case "size":
-                document.getElementById(`${newBlogDiv.id}`).style.fontSize = sizes[value];
+                // document.getElementById(`${newBlogDiv.id}`).style.fontSize = sizes[value];
+                newBlogDiv.style.fontSize = sizes[value];
                 break;
             case "image":
                 const newImage = createImageElement(value);
@@ -163,7 +166,10 @@ const createBlogDiv = (title, blogContent, params) => {
 }
 
 const createImageElement = (url) => {
-    const newImage = new Image(100, 100);
+    const newImage = document.createElement('img');
+    // const newImage = new Image(100, 100);
+    newImage.width = 100;
+    newImage.height = 100;
     newImage.src = url;
     return newImage;
 }
