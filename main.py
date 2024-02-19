@@ -57,7 +57,7 @@ def run_program():
     #     "tokens": [
     #         ["list", "displayed_blog_posts"],
     #         ["function", "create_night_blog", "color=purple"],
-    #         ["function", "create_school_blog", "font=verdana", "size=large", "color=yellow"],
+    #         ["function", "create_school_blog", "font=verdana", "size=large", "color=orange"],
     #         ["function", "create_day_blog", "font=courier", "size=small", "image=https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg"],
     #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
     #         ["var", "blog_night", "create_night_blog", "How I stay awake during the night"],
@@ -74,7 +74,7 @@ def run_program():
         "tokens": [
             ["list", "displayed_blog_posts"],
             ["function", "create_night_blog", "color=purple"],
-            ["function", "create_school_blog", "font=verdana", "size=large", "color=yellow"],
+            ["function", "create_school_blog", "font=verdana", "size=large", "color=orange"],
             ["function", "create_day_blog", "font=courier", "size=small", "image=https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"],
             ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
             ["var", "blog_night", "create_night_blog", "How I stay awake during the night"],
