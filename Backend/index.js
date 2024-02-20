@@ -16,10 +16,10 @@ inputArray = [
     ["if", "night", "then", "if", "midnight", "then", "var", "var_name", "create_day_blog", "Here is some valid text for a blog"]
 ]
  */
-
+const initHTMLDocument = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.tailwindcss.com"></script></head><body><div id="root"></div></body></html>'
 const jsdom = require("jsdom");
 const JSDOM = jsdom.JSDOM;
-const dom = new JSDOM('<!DOCTYPE html><html><body><div id="root"></div></body></html>');
+const dom = new JSDOM(initHTMLDocument);
 const window = dom.window;
 const document = window.document;
 
@@ -100,40 +100,54 @@ let user_functions = {};
 
 // ["list", "displayed_blog_posts"] -> declaring list
 const do_list = (tokens) => {
-    // blog_arrays.set(tokens[1], []);
     blog_arrays = [];
 }
 
 // 'function function_name = create blog with (key1=value1, key2=value2)\n' -> ["function", "function_name", "key1=value1", "key2=value2"]
 const do_function = (tokens) => {
     const functionName = tokens[1];
-    // TODO: need to pass in key and value params, but not sure how to handle that
     const params = tokens.slice(2);
     user_functions[functionName] = params;
 } 
 
 // ["add", "yeet", "displayed_blog_posts"]
 const do_add = (tokens) => {
-    const title = tokens[1];
-    const blogContent = tokens[2];
-    // const newBlogDiv = createBlogDiv(title, blogContent);
-    // blog_arrays[title].push([title, newBlogDiv]);
-    // blog_arrays.push([title, newBlogDiv]);
-    blog_arrays.push([title, variables[title]]);
+    try {
+        const title = tokens[1];
+        const blogContent = tokens[2];
+        blog_arrays.push([title, variables[title]]);
+    } catch (error) {
+        console.log(`List was not instantiated before adding blog ${tokens[1]} to displayed_blog_posts`);
+    }
 }
 
 // function create_day_blog = create blog with (category=day, color=blue)
 const createBlogDiv = (title, blogContent, params) => {
-    // TODO: parse params array, and modify div based on that
-    // 1. Parse params array (it's of form ["key1=value1", "key2=value2"]), separate by '=' char
-    // 2. Iterate over parsed params
-    // 3. Switch based on key type (e.g color or category, then make changes to div based on value) 
     const newBlogDiv = document.createElement("div");
     newBlogDiv.id = `blogID-${title}`;
+    newBlogDiv.style.borderWidth = '5px';
+    newBlogDiv.style.padding = '20px';
+    newBlogDiv.style.borderStyle = 'solid';
+    newBlogDiv.style.borderColor = 'black';
+    newBlogDiv.style.textAlign = 'centre';
+    newBlogDiv.style.display = 'flex';
+    newBlogDiv.style.justifyContent = 'center';
+    newBlogDiv.style.alignItems = 'center'; // Center vertically
+    newBlogDiv.style.flexDirection = 'column';
+
+    // const newBlogHeader = document.createElement("h3");
+    // newBlogHeader.append(title.replaceAll("_", " "));
+    // newBlogDiv.appendChild(newBlogHeader)
 
     const newBlogHeader = document.createElement("h3");
-    newBlogHeader.append(title.replaceAll("_", " "));
+    newBlogHeader.style.textDecoration = 'underline';
+    textTitle = title.replaceAll("_", " ");
+    newBlogHeader.append(textTitle.charAt(0).toUpperCase() + textTitle.slice(1));
     newBlogDiv.appendChild(newBlogHeader)
+
+    // const newBlogHeader = document.createElement("h3");
+    // const capitalizedTitle = title.replaceAll("_", " ").charAt(0).toUpperCase() + title.slice(1).replaceAll("_", " ");
+    // newBlogHeader.append(capitalizedTitle);
 
     const newBlogContent = document.createTextNode(blogContent);
     newBlogDiv.appendChild(newBlogContent);
@@ -148,7 +162,8 @@ const createBlogDiv = (title, blogContent, params) => {
                 newBlogDiv.style.color = colors[value];
                 break;
             case "font":
-                newBlogDiv.style.font = fonts[value];
+                // newBlogDiv.style.font = fonts[value];
+                newBlogDiv.style.fontFamily = fonts[value];
                 break;
             case "size":
                 newBlogDiv.style.fontSize = sizes[value];
@@ -159,7 +174,6 @@ const createBlogDiv = (title, blogContent, params) => {
                 newBlogDiv.appendChild(newImage);
                 break;
             default:
-                // Error: invalid key
                 console.log("Error: key " + key + " is undefined");
                 break;
         }
@@ -178,11 +192,15 @@ const createImageElement = (url) => {
 
 // ["remove", "yeet", "displayed_blog_posts"]
 const do_remove = (tokens) => {
-    for (let i = 0; i < blog_arrays.length; i++) {
-        if (blog_arrays[i][0] === tokens[1]) {
-            blog_arrays.splice(i, 1);
-            break;
+    try {
+        for (let i = 0; i < blog_arrays.length; i++) {
+            if (blog_arrays[i][0] === tokens[1]) {
+                blog_arrays.splice(i, 1);
+                break;
+            }
         }
+    } catch (error) {
+        console.log(`List was not instantiated before removing from displayed_blog_posts`);
     }
 }
 
@@ -194,28 +212,40 @@ const do_var = (tokens) => {
     const params = user_functions[function_name];
     const blog = createBlogDiv(var_name, blog_text, params);
     variables[var_name] = blog;
-    // return blog;
 }
 
-// ["if", "night", "then", "if", "midnight", "then", "var", "var_name", "create_day_blog", "Here is some valid text for a blog"]
+// ["if", "night", "then", "add", "blog_night", "displayed_blog_posts"],
 const do_if = (tokens) => {
-    // TODO
     const condition = tokens[1];
     const hours = new Date().getHours();
     const isDay = hours < 18 && hours > 5;
     switch (condition) {
         case "night":
-            if(!isDay) {
-                eval([tokens.slice(3)]);
+            if(isDay) {
+                return;
             }
+            document.getElementById("root").style.backgroundColor = '#3a3e47';
             break;
         case "day":
-            if(isDay) {
-                eval([tokens.slice(3)]);
+            if(!isDay) {
+                return;
             }
+            document.getElementById("root").style.backgroundColor = '#c3d4fa';
             break;
         default:
-            console.log("State error!")
+            console.log("Undefined condition!")
+            break;
+    }
+
+    switch (tokens[3]) {
+        case "add":
+            do_add(tokens.slice(3));
+            break;
+        case "remove":
+            do_remove(tokens.slice(3));
+            break;
+        default:
+            console.log("Undefined function!")
             break;
     }
 }
@@ -225,22 +255,37 @@ const do_error = () => {
 }
 
 // blog_arrays = [[name1, blog1], [name2, blog2]]
+// const do_render = () => {
+//     const rootElement = document.getElementById("root");
+//     rootElement.style.width = '100%';
+//     rootElement.style.height = '100%';
+//     rootElement.style.display = 'flex';
+//     rootElement.style.justifyContent = 'center';
+//     rootElement.style.flexDirection = 'column';
+//     for (let blog of blog_arrays) {
+//         rootElement.appendChild(blog[1]);
+//     }
+//     const htmlContent = dom.serialize();
+//     fs.writeFileSync('output.html', htmlContent);
+// }
+
 const do_render = () => {
-    // const rootElement = document.getElementById("root");
-
-    // taken from external source
-    
     const rootElement = document.getElementById("root");
-    
-    // taken from external source
-
+    rootElement.style.minWidth = '100vw';
+    rootElement.style.minHeight = '100vh';
+    rootElement.style.display = 'flex';
+    rootElement.style.justifyContent = 'center';
+    rootElement.style.alignItems = 'center'; // Center vertically
+    rootElement.style.flexDirection = 'column';
 
     for (let blog of blog_arrays) {
-        rootElement.appendChild(blog[1]);
+        const blogElement = blog[1];
+        blogElement.style.margin = '10px'; // Add margin for spacing between blogs
+        rootElement.appendChild(blogElement);
     }
+
     const htmlContent = dom.serialize();
     fs.writeFileSync('output.html', htmlContent);
-
 }
 
 module.exports = eval;
