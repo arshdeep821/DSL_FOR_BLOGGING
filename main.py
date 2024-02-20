@@ -75,17 +75,47 @@ def run_program():
     # data = {
     #     "tokens": [
     #         ["list", "displayed_blog_posts"],
-    #         ["function", "create_night_blog", "color=purple"],
+    #         ["function", "create_night_blog", "color=red", "size=medium"],
     #         ["function", "create_school_blog", "font=verdana", "size=large", "color=orange"],
     #         ["function", "create_day_blog", "font=courier", "size=small", "image=https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"],
     #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
     #         ["var", "blog_night", "create_night_blog", "How I stay awake during the night"],
     #         ["var", "blog_school", "create_school_blog", "How I pass all my classes"],
     #         ["add", "blog_school", "displayed_blog_posts"],
-    #         ["add", "blog_night", "displayed_blog_posts"],
+    #         ["add", "blog_day", "displayed_blog_posts"],
     #         ["if", "night", "then", "add", "blog_night", "displayed_blog_posts"],
     #     ]
     # }
+
+        # input5.txt
+    # data = {
+    #     "tokens": [
+    #         ["list", "displayed_blog_posts"],
+    #         ["function", "create_day_blog", "color=blue"],
+    #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
+    #         ["add", "blog_day", "displayed_blog_posts"],
+    #         ["add", "blog_day", "displayed_blog_posts"],
+    #     ]
+    # }
+
+    # input6.txt
+    # data = {
+    #     "tokens": [
+    #         ["function", "create_day_blog", "color=blue"],
+    #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
+    #         ["add", "blog_day", "displayed_blog_posts"],
+    #     ]
+    # }
+
+    # input7.txt
+    # data = {
+    #     "tokens": [
+    #         ["function", "create_day_blog", "color=blue"],
+    #         ["var", "blog_day", "create_day_blog", "How I stay awake during the day"],
+    #         ["remove", "blog_day", "displayed_blog_posts"],
+    #     ]
+    # }
+
 
     print("ALL CHECKS PASSED")
     print("HERE ARE THE TOKENS BEING SENT")
