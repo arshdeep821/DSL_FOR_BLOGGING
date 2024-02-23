@@ -103,6 +103,8 @@ const do_list = (tokens) => {
     blog_arrays = [];
 }
 
+let errors = []
+
 // 'function function_name = create blog with (key1=value1, key2=value2)\n' -> ["function", "function_name", "key1=value1", "key2=value2"]
 const do_function = (tokens) => {
     const functionName = tokens[1];
@@ -117,7 +119,8 @@ const do_add = (tokens) => {
         const blogContent = tokens[2];
         blog_arrays.push([title, variables[title]]);
     } catch (error) {
-        console.log(`List was not instantiated before adding blog ${tokens[1]} to displayed_blog_posts`);
+        errors.push(`List was not instantiated before adding blog ${tokens[1]} to displayed_blog_posts`);
+        // console.log(`List was not instantiated before adding blog ${tokens[1]} to displayed_blog_posts`);
     }
 }
 
@@ -200,58 +203,71 @@ const do_remove = (tokens) => {
             }
         }
     } catch (error) {
-        console.log(`List was not instantiated before removing from displayed_blog_posts`);
+        errors.push(`List was not instantiated before removing from displayed_blog_posts`);
+        // console.log(`List was not instantiated before removing from displayed_blog_posts`);
     }
 }
 
 // ["var", "var_name", "create_day_blog", "Here is some valid text for a blog"],
 const do_var = (tokens) => {
-    var_name = tokens[1];
-    function_name = tokens[2];
-    blog_text = tokens[3];
-    const params = user_functions[function_name];
-    const blog = createBlogDiv(var_name, blog_text, params);
-    variables[var_name] = blog;
+    try {
+        var_name = tokens[1];
+        function_name = tokens[2];
+        blog_text = tokens[3];
+        const params = user_functions[function_name];
+        const blog = createBlogDiv(var_name, blog_text, params);
+        variables[var_name] = blog;
+    } catch (error) {
+        errors.push(`There was an issue with variable: ${tokens[1]}`);
+        // console.log(`There was an issue with variable: ${tokens[1]}`);
+    }
 }
 
 // ["if", "night", "then", "add", "blog_night", "displayed_blog_posts"],
 const do_if = (tokens) => {
-    const condition = tokens[1];
-    const hours = new Date().getHours();
-    const isDay = hours < 18 && hours > 5;
-    switch (condition) {
-        case "night":
-            if(isDay) {
-                return;
-            }
-            document.getElementById("root").style.backgroundColor = '#3a3e47';
-            break;
-        case "day":
-            if(!isDay) {
-                return;
-            }
-            document.getElementById("root").style.backgroundColor = '#c3d4fa';
-            break;
-        default:
-            console.log("Undefined condition!")
-            break;
+    try {
+        const condition = tokens[1];
+        const hours = new Date().getHours();
+        const isDay = hours < 18 && hours > 5;
+        switch (condition) {
+            case "night":
+                if(isDay) {
+                    return;
+                }
+                document.getElementById("root").style.backgroundColor = '#3a3e47';
+                break;
+            case "day":
+                if(!isDay) {
+                    return;
+                }
+                document.getElementById("root").style.backgroundColor = '#c3d4fa';
+                break;
+            default:
+                console.log("Undefined condition!")
+                break;
+        }
+    
+        switch (tokens[3]) {
+            case "add":
+                do_add(tokens.slice(3));
+                break;
+            case "remove":
+                do_remove(tokens.slice(3));
+                break;
+            default:
+                console.log("Undefined function!")
+                break;
+        }
+    } catch (error) {
+        errors.push(`Something went wrong with if statement involving the condition: ${tokens[1]}`);
+        // console.log(`Something went wrong with if statement involving the condition: ${tokens[1]}`);
     }
 
-    switch (tokens[3]) {
-        case "add":
-            do_add(tokens.slice(3));
-            break;
-        case "remove":
-            do_remove(tokens.slice(3));
-            break;
-        default:
-            console.log("Undefined function!")
-            break;
-    }
 }
 
 const do_error = () => {
-    
+    errors.push(`Something went wrong on the backend, please check your code`);
+    // console.log(`Something went wrong on the backend, please check your code`);
 }
 
 // blog_arrays = [[name1, blog1], [name2, blog2]]
@@ -270,6 +286,15 @@ const do_error = () => {
 // }
 
 const do_render = () => {
+    
+    if (errors.length === 0) {
+        console.log(`Errors are present in the code and can not be rendered:`);
+        for (let err of errors) {
+            console.log(err);
+        }
+        return;
+    }
+    
     const rootElement = document.getElementById("root");
     rootElement.style.minWidth = '100vw';
     rootElement.style.minHeight = '100vh';
@@ -280,6 +305,7 @@ const do_render = () => {
     rootElement.style.backgroundColor = '#c3d4fa';
     const mainBlogTitle = document.createElement("h1");
     mainBlogTitle.append("Welcome to my blog!");
+    mainBlogTitle.style.fontSize = '100px';
     rootElement.appendChild(mainBlogTitle)
 
     for (let blog of blog_arrays) {
