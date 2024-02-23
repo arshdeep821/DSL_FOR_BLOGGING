@@ -280,6 +280,7 @@ const do_render = () => {
     rootElement.style.backgroundColor = '#c3d4fa';
     const mainBlogTitle = document.createElement("h1");
     mainBlogTitle.append("Welcome to my blog!");
+    mainBlogTitle.style.fontSize = '100px';
     rootElement.appendChild(mainBlogTitle)
 
     for (let blog of blog_arrays) {
