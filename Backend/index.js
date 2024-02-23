@@ -98,12 +98,12 @@ let variables = {};
 // example: { "create_day_blog": fn }
 let user_functions = {};
 
+let errors = []
+
 // ["list", "displayed_blog_posts"] -> declaring list
 const do_list = (tokens) => {
     blog_arrays = [];
 }
-
-let errors = []
 
 // 'function function_name = create blog with (key1=value1, key2=value2)\n' -> ["function", "function_name", "key1=value1", "key2=value2"]
 const do_function = (tokens) => {
