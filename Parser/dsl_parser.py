@@ -22,6 +22,9 @@ def parse_file(file_name):
 
 def parse(loc):
 
+    if len(loc.strip()) == 0:
+        return []
+
     keyword = list(loc.split(" "))[0]
 
     if keyword == "function":
