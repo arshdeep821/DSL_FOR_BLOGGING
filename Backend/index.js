@@ -98,7 +98,7 @@ let variables = {};
 // example: { "create_day_blog": fn }
 let user_functions = {};
 
-let errors = []
+let errors = [];
 
 // ["list", "displayed_blog_posts"] -> declaring list
 const do_list = (tokens) => {
@@ -297,6 +297,7 @@ const do_render = () => {
         }
         return;
     }
+    
     
     const rootElement = document.getElementById("root");
     rootElement.style.minWidth = '100vw';
