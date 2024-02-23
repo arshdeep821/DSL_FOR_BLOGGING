@@ -277,7 +277,7 @@ const do_render = () => {
     rootElement.style.justifyContent = 'center';
     rootElement.style.alignItems = 'center'; // Center vertically
     rootElement.style.flexDirection = 'column';
-
+    rootElement.style.backgroundColor = '#c3d4fa';
     const mainBlogTitle = document.createElement("h1");
     mainBlogTitle.append("Welcome to my blog!");
     rootElement.appendChild(mainBlogTitle)
