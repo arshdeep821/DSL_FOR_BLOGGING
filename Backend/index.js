@@ -128,6 +128,7 @@ const do_add = (tokens) => {
 const createBlogDiv = (title, blogContent, params) => {
     const newBlogDiv = document.createElement("div");
     newBlogDiv.id = `blogID-${title}`;
+    newBlogDiv.style.width = '50vw'
     newBlogDiv.style.borderWidth = '5px';
     newBlogDiv.style.padding = '20px';
     newBlogDiv.style.borderStyle = 'solid';
