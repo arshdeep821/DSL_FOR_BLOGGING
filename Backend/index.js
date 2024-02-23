@@ -287,7 +287,7 @@ const do_error = () => {
 
 const do_render = () => {
     
-    if (errors.length === 0) {
+    if (errors.length !== 0) {
         console.log(`Errors are present in the code and can not be rendered:`);
         for (let err of errors) {
             console.log(err);
