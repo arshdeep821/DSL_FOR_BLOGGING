@@ -4,7 +4,7 @@
 # Also img
 valid_parameters = {
     "color": set(["white", "black", "red", "green", "blue", "yellow", "purple", "cyan", "magenta", "orange"]),
-    "font": set(["veranda", "courier"]),
+    "font": set(["verdana", "courier"]),
     "size": set(["small", "medium", "large"]),
 }
 
@@ -46,7 +46,6 @@ def dynamic_checks(tokens):
                 key, value = key_value_pair.split("=")
                 # handle image
                 if key not in valid_parameters and key != "image":
-                    print("DEBUG: " + key)
                     return invalid_parameter_key_error()
                 
                 if key in valid_parameters and value not in valid_parameters[key]:

@@ -49,7 +49,7 @@ def parse(loc):
     
 
 def parse_function(loc):
-    regex_pattern = r'function [a-zA-Z_]\w* = create blog with \([a-zA-Z_]\w*=\w+(, [a-zA-Z_]\w*=\w+)*\)'
+    regex_pattern = r'function [a-zA-Z_]\w* = create blog with \([a-zA-Z_]\w*=[\w\-./]+(, [a-zA-Z_]\w*=[\w\-./:]+)*\)'
     if not re.match(regex_pattern, loc):
         return "SYNTAX ERROR: invalid function declaration"
     parts = loc.split()
