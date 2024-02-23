@@ -190,6 +190,8 @@ const createImageElement = (url) => {
     const newImage = document.createElement('img');
     newImage.width = 100;
     newImage.height = 100;
+    newImage.style.maxWidth = '40vw';
+    newImage.style.maxHeight = '40vw';
     newImage.src = url;
     return newImage;
 }
