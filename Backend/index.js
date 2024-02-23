@@ -278,6 +278,10 @@ const do_render = () => {
     rootElement.style.alignItems = 'center'; // Center vertically
     rootElement.style.flexDirection = 'column';
 
+    const mainBlogTitle = document.createElement("h1");
+    mainBlogTitle.append("Welcome to my blog!");
+    rootElement.appendChild(mainBlogTitle)
+
     for (let blog of blog_arrays) {
         const blogElement = blog[1];
         blogElement.style.margin = '10px'; // Add margin for spacing between blogs
