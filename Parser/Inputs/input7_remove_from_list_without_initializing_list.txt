@@ -1,4 +1,4 @@
-function create_day_blog = create blog with (category=day, color=blue)
+function create_day_blog = create blog with (color=green)
 
 var blog_day = create_day_blog with text (How I stay awake during the day)
 

@@ -1,8 +1,8 @@
 list displayed_blog_posts
 
-function create_day_blog = create blog with (category=day, color=blue)
+function create_day_blog = create blog with (color=blue)
 
-function create_night_blog = create blog with (category=night, color=purple)
+function create_night_blog = create blog with (color=purple)
 
 var blog_day = create_day_blog with text (How I stay awake during the day)
 

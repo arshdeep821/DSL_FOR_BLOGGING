@@ -1,0 +1,11 @@
+list displayed_blog_posts
+
+function create_day_blog = create blog with (font=courier, color=purple)
+
+function create_night_blog = create blog with (font=verdana, size=large, color=orange)
+
+var blog = create_day_blog with text (How I stay awake during the day)
+
+if (night) then var blog = create_night_blog with text (How I stay awake during the night)
+
+add blog to displayed_blog_posts

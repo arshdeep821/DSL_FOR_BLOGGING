@@ -5,7 +5,7 @@ import requests
 
 def run_program():
 
-    tokens_result = parse_file("Parser/ilya.txt")
+    tokens_result = parse_file("Parser/Inputs/input13.txt")
     if type(tokens_result) == str:
         print(tokens_result)
         return

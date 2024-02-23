@@ -14,6 +14,6 @@ var blog_school = create_school_blog with text (How I pass all my classes)
 
 add blog_school to displayed_blog_posts
 
-add blog_night to displayed_blog_posts
+add blog_day to displayed_blog_posts
 
 if (night) then add blog_night to displayed_blog_posts

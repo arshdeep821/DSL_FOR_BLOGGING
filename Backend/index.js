@@ -26,7 +26,7 @@ const document = window.document;
 const fs = require('fs');
 
 const eval = (inputArray) => {
-    const valid = true;
+    let valid = true;
     for (const tokens of inputArray) {
         switch (tokens[0]) {
             case "list":
@@ -202,7 +202,7 @@ const do_remove = (tokens) => {
         for (let i = 0; i < blog_arrays.length; i++) {
             if (blog_arrays[i][0] === tokens[1]) {
                 blog_arrays.splice(i, 1);
-                break;
+                // break;
             }
         }
     } catch (error) {
@@ -257,6 +257,12 @@ const do_if = (tokens) => {
             case "remove":
                 do_remove(tokens.slice(3));
                 break;
+            case "var":
+                do_var(tokens.slice(3));
+                break;
+            case "function":
+                do_function(tokens.slice(3));
+                break;
             default:
                 console.log("Undefined function!")
                 break;
@@ -307,6 +313,9 @@ const do_render = () => {
     rootElement.style.alignItems = 'center'; // Center vertically
     rootElement.style.flexDirection = 'column';
     rootElement.style.backgroundColor = '#c3d4fa';
+    // if (rootElement.style.backgroundColor === null) {// temp fix to the background color but does not work if the if statement evaluates to false
+    //     rootElement.style.backgroundColor = '#c3d4fa';
+    // }
     const mainBlogTitle = document.createElement("h1");
     mainBlogTitle.append("Welcome to my blog!");
     mainBlogTitle.style.fontSize = '100px';
