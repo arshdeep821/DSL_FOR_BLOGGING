@@ -5,7 +5,7 @@ import requests
 
 def run_program():
 
-    tokens_result = parse_file("Parser/Inputs/input13.txt")
+    tokens_result = parse_file("Parser/Inputs/input10_override_variable_dec_add_2.txt")
     if type(tokens_result) == str:
         print(tokens_result)
         return

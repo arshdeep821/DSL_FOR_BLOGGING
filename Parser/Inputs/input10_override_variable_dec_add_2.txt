@@ -11,3 +11,5 @@ add blog to displayed_blog_posts
 var blog = create_night_blog with text (How I stay awake during the night)
 
 add blog to displayed_blog_posts
+
+remove blog from displayed_blog_posts

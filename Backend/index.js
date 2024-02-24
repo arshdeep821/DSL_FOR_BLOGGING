@@ -197,17 +197,32 @@ const createImageElement = (url) => {
 }
 
 // ["remove", "yeet", "displayed_blog_posts"]
+// const do_remove = (tokens) => {
+//     try {
+//         for (let i = 0; i < blog_arrays.length; i++) {
+//             if (blog_arrays[i][0] === tokens[1]) {
+//                 blog_arrays.splice(i, 1);
+//                 // break;
+//             }
+//         }
+//     } catch (error) {
+//         errors.push(`List was not instantiated before removing from displayed_blog_posts`);
+//         // console.log(`List was not instantiated before removing from displayed_blog_posts`);
+//     }
+// }
+
 const do_remove = (tokens) => {
     try {
-        for (let i = 0; i < blog_arrays.length; i++) {
+        let i = 0;
+        while (i < blog_arrays.length) {
             if (blog_arrays[i][0] === tokens[1]) {
                 blog_arrays.splice(i, 1);
-                // break;
+            } else {
+                i++;
             }
         }
     } catch (error) {
         errors.push(`List was not instantiated before removing from displayed_blog_posts`);
-        // console.log(`List was not instantiated before removing from displayed_blog_posts`);
     }
 }
 
