@@ -1,3 +1,9 @@
+if night then add yeet to displayed_blog_posts
+
+functionfunction_name = create blog with (color=black, size=medium, font=courier, image=https://i.pngimg.me/thumb/f/720/m2i8K9G6K9K9G6Z5.jpg)
+
+add 1234 to displayed_blog_posts
+
 function create_day_blog = create blog with (color=black, size=medium, font=courier, image=https://i.pngimg.me/thumb/f/720/m2i8K9G6K9K9G6Z5.jpg)
 
 var blog_day = create_night_blog(How I stay awake during the day)
