@@ -1,0 +1,6 @@
+function create_day_blog = create blog with (color=black, size=medium, font=courier, image=https://i.pngimg.me/thumb/f/720/m2i8K9G6K9K9G6Z5.jpg)
+
+var blog_day = create_night_blog(How I stay awake during the day)
+
+remove 999_invalid_var_name from displayed_blog_posts
+
