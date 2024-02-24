@@ -336,14 +336,18 @@ const do_render = () => {
     mainBlogTitle.style.fontSize = '100px';
     rootElement.appendChild(mainBlogTitle)
 
-    for (let blog of blog_arrays) {
-        const blogElement = blog[1];
-        blogElement.style.margin = '10px'; // Add margin for spacing between blogs
-        rootElement.appendChild(blogElement);
+    try {
+        for (let blog of blog_arrays) {
+            const blogElement = blog[1];
+            blogElement.style.margin = '10px'; // Add margin for spacing between blogs
+            rootElement.appendChild(blogElement);
+        }
+    
+        const htmlContent = dom.serialize();
+        fs.writeFileSync('output.html', htmlContent);
+    } catch (error) {
+        console.log(`Blog Could not be rendered, please check your code`);
     }
-
-    const htmlContent = dom.serialize();
-    fs.writeFileSync('output.html', htmlContent);
 }
 
 module.exports = eval;

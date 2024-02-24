@@ -1,0 +1,5 @@
+list displayed_blog_posts
+
+function create_day_blog = create blog with (color=blue)
+
+add blog_day to displayed_blog_posts
