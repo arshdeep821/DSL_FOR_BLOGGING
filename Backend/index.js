@@ -76,6 +76,17 @@ const colors = {
     "orange": "#FFA500"
 };
 
+const backgrounds = {
+    "day": "#ffe85d",
+    "night": "#274891",
+    "default": "#ffffff"
+}
+
+const rootElementBackground = {
+    "day": "#bee3ce",
+    "night": "#777780"
+}
+
 const fonts = {
     "verdana": "verdana",
     "courier": "Courier New",
@@ -148,6 +159,7 @@ const createBlogDiv = (title, blogContent, params) => {
     textTitle = title.replaceAll("_", " ");
     newBlogHeader.append(textTitle.charAt(0).toUpperCase() + textTitle.slice(1));
     newBlogDiv.appendChild(newBlogHeader)
+    newBlogDiv.style.backgroundColor = backgrounds["default"];
 
     // const newBlogHeader = document.createElement("h3");
     // const capitalizedTitle = title.replaceAll("_", " ").charAt(0).toUpperCase() + title.slice(1).replaceAll("_", " ");
@@ -176,6 +188,9 @@ const createBlogDiv = (title, blogContent, params) => {
                 const newImage = createImageElement(value);
                 newImage.style.display = 'block';
                 newBlogDiv.appendChild(newImage);
+                break;
+            case "background":
+                newBlogDiv.style.backgroundColor = backgrounds[value];
                 break;
             default:
                 console.log("Error: key " + key + " is undefined");
@@ -233,6 +248,10 @@ const do_var = (tokens) => {
         function_name = tokens[2];
         blog_text = tokens[3];
         const params = user_functions[function_name];
+        const dayNightStatus = tokens.filter((token) => {
+            return token === "background=day" || token === "background=night";
+        })[0]
+        if(dayNightStatus !== undefined) params[params.length - 1] = dayNightStatus
         const blog = createBlogDiv(var_name, blog_text, params);
         variables[var_name] = blog;
     } catch (error) {
@@ -252,13 +271,13 @@ const do_if = (tokens) => {
                 if(isDay) {
                     return;
                 }
-                document.getElementById("root").style.backgroundColor = '#3a3e47';
+                tokens.push('background=night');
                 break;
             case "day":
                 if(!isDay) {
-                    return;
+                return;
                 }
-                document.getElementById("root").style.backgroundColor = '#c3d4fa';
+                tokens.push('background=day');
                 break;
             default:
                 console.log("Undefined condition!")
@@ -327,10 +346,12 @@ const do_render = () => {
     rootElement.style.justifyContent = 'center';
     rootElement.style.alignItems = 'center'; // Center vertically
     rootElement.style.flexDirection = 'column';
-    rootElement.style.backgroundColor = '#c3d4fa';
-    // if (rootElement.style.backgroundColor === null) {// temp fix to the background color but does not work if the if statement evaluates to false
-    //     rootElement.style.backgroundColor = '#c3d4fa';
-    // }
+
+    const hours = new Date().getHours();
+    const isDay = hours < 18 && hours > 5;
+    const backgroundValue = isDay ? 'day' : 'night';
+    document.getElementById("root").style.backgroundColor = rootElementBackground[backgroundValue];
+
     const mainBlogTitle = document.createElement("h1");
     mainBlogTitle.append("Welcome to my blog!");
     mainBlogTitle.style.fontSize = '100px';
