@@ -5,3 +5,7 @@ function create_day_blog = create blog with (color=blue)
 var blog_day = create_day_blog with text (How I stay awake during the day)
 
 add blog_day to displayed_blog_posts
+
+if (night) then add blog_day to displayed_blog_posts
+
+remove blog_day from displayed_blog_posts
