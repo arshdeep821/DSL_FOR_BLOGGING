@@ -10,7 +10,7 @@ class TestDynamic(unittest.TestCase):
         self.assertEqual(dynamic_checks.dynamic_checks(test_input), expected_output)
     
     def test_dynamic_checker2(self):
-        test_input = [["function", "function_name", "key1=value1", "key2=value2"]]
+        test_input = [["function", "function_name", "color=blue"]]
         expected_output = True
         self.assertEqual(dynamic_checks.dynamic_checks(test_input), expected_output)
     
@@ -20,13 +20,13 @@ class TestDynamic(unittest.TestCase):
         self.assertEqual(dynamic_checks.dynamic_checks(test_input), expected_output)
         
     def test_dynamic_checker4(self):
-        test_input = [["function", "create_day_blog", "category=day", "color=blue"],
+        test_input = [["function", "create_day_blog", "color=blue"],
                       ["var", "blog_day", "create_day_blog", "How I stay awake during the day"]]
         expected_output = True
         self.assertEqual(dynamic_checks.dynamic_checks(test_input), expected_output)
     
     def test_dynamic_checker5(self):
-        test_input = [["function", "create_day_blog", "category=day", "color=blue"],
+        test_input = [["function", "create_day_blog", "color=blue"],
                       ["var", "blog_day", "create_night_blog", "How I stay awake during the day"]]
         expected_output = dynamic_checks.undeclared_function_error()
         self.assertEqual(dynamic_checks.dynamic_checks(test_input), expected_output)
