@@ -1,0 +1,27 @@
+list displayed_blog_posts
+
+function create_day_blog = create blog with (color=black, size=medium, font=courier, image=https://i.pngimg.me/thumb/f/720/m2i8K9G6K9K9G6Z5.jpg)
+
+function create_night_blog = create blog with (color=purple, image=https://static.vecteezy.com/system/resources/previews/021/698/875/original/cute-night-sky-background-with-3d-moon-and-stars-garland-square-composition-free-vector.jpg)
+
+function create_school_blog = create blog with (color=orange, size=large, font=verdana)
+
+function create_work_blog = create blog with (color=magenta, size=small)
+
+var blog_day = create_day_blog with text (How I stay awake during the day)
+
+var blog_night = create_night_blog with text (How I stay awake during the night)
+
+var blog_school = create_school_blog with text (How I stay awake at school)
+
+var blog_work = create_work_blog with text (How I stay awake at work)
+
+add blog_day to displayed_blog_posts
+
+add blog_night to displayed_blog_posts
+
+add blog_work to displayed_blog_posts
+
+if (night) then add blog_school to displayed_blog_posts
+
+remove blog_work from displayed_blog_posts
