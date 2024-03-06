@@ -2,7 +2,7 @@
 
 ## Parser
 
-- Make sure to have python installed if not on your computer, if you have a mac you can use python3
+- Make sure to have python installed on your computer, if you have a mac you can use python3
 - Make sure to install requests as well can be done with pip or pip3 if on mac
 
 
